@@ -1,0 +1,12 @@
+<body>
+<h2>질문 목록</h2>
+<ul>
+    {% for question in questions %}
+    <li><a href="{% url 'question_detail' pk=question.id %}">{{ question.title }}</a> 
+        <span>{{question.upload_time}}</span></li>
+</ul>
+{% empty %}
+    <p>질문이 없습니다.</p>
+{% endfor %}
+
+</body>

@@ -1,0 +1,14 @@
+<body>
+    <div>
+        <h1> {{ questions.title }} </h1>
+        <br>
+        <span> {{ questions.upload_time }} </span>
+        <div class="content">{{questions.content}}</div>
+    </div>
+
+    <div>
+        <a href="{% url 'question_list' %}">
+            <button>목록으로</button>
+        </a>
+    </div>
+</body>

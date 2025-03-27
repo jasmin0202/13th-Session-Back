@@ -9,3 +9,11 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
+    
+class Question(models.Model):
+    title = models.CharField('Title', max_length=50, blank=True)
+    upload_time = models.DateTimeField(unique = True) # 작성 날짜시간
+    content = models.TextField('Content') # 내용
+    
+    def __str__(self):
+        return self.title
