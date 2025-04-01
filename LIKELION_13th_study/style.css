@@ -1,0 +1,56 @@
+.name {
+    font-size: 2em;
+    font-weight: bold;
+    color: green;
+    text-align: center;
+    margin: 0;
+    padding: 0.5em;
+    border-style: dotted;
+}
+
+.title_container {
+    margin:10px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    overflow:hidden;
+
+    h2 {
+        background-color: green;
+        color:white;
+        text-align: center;
+        margin:0;
+        padding:10px;
+    }
+    p {
+        font-size: 1.5em;
+        background-color: white;
+        font-weight: bold;
+        margin: 0;
+        font-style:italic;
+        padding:10px;
+    }
+}
+
+.likes_container {
+    margin:10px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 8px 4px rgba(0, 0, 0, 0.1);
+    overflow:hidden;
+
+    h2 {
+        background-color: green;
+        color:white;
+        text-align: center;
+        margin:0;
+        padding:10px;
+    }
+    ul {
+        background-color: white;
+        list-style-type: circle;
+        margin:0;
+    }
+    li {
+        margin: 0;
+        font-size: 1em;
+    }
+}
