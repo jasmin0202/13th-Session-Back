@@ -10,7 +10,7 @@ services:
     # 컨테이너가 시작될 때 Gunicorn 웹 서버를 사용하여 Django 애플리케이션을 실행
     command: gunicorn 프로젝트명.wsgi:application --bind 0.0.0.0:8000
     environment: # settings.prod를 설정 모듈로 설정
-      DJANGO_SETTINGS_MODULE: 프로젝트명.settings.prod 
+      DJANGO_SETTINGS_MODULE: drfproject.settings.prod 
     env_file:
       - .env # 환경 변수를 .env 파일에서 로드
     volumes:
