@@ -4,18 +4,15 @@ services:
   web:
     container_name: web
     build:
-      context: .
-      dockerfile: Dockerfile.prod  # Dockerfile.prod로 빌드
-    command: gunicorn drfproject.wsgi:application --bind 0.0.0.0:8000
-    environment:
-      DJANGO_SETTINGS_MODULE: drfproject.settings.prod
-      TZ: "Asia/Seoul"
-      # 필요하면 아래에 DB 환경변수 추가
-      # POSTGRES_DB: db
-      # POSTGRES_USER: root
-      # POSTGRES_PASSWORD: yourstrongpass
-      # POSTGRES_HOST: db
-      # POSTGRES_PORT: "5432"
+      context: ./
+      dockerfile: Dockerfile.prod    # Dockerfile.prod를 사용해 이미지를 빌드
+    # 컨테이너가 시작될 때 Gunicorn 웹 서버를 사용하여 Django 애플리케이션을 실행
+    command: gunicorn 프로젝트명.wsgi:application --bind 0.0.0.0:8000
+    environment: # settings.prod를 설정 모듈로 설정
+      DJANGO_SETTINGS_MODULE: drfproject.settings.prod 
+    env_file:
+     - .env # 환경 변수를 .env 파일에서 로드
+
     volumes:
       - static:/home/app/web/static
       - media:/home/app/web/media
