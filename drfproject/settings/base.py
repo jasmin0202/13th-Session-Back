@@ -3,8 +3,6 @@ import os
 from datetime import timedelta
 import environ
 
-import pymysql  
-pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -108,7 +106,7 @@ CORS_ALLOW_HEADERS = [
 ]
 
 
-ROOT_URLCONF = "blogProject.urls"
+ROOT_URLCONF = "drfproject.urls"
 
 TEMPLATES = [
     {
@@ -126,7 +124,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "blogProject.wsgi.application"
+WSGI_APPLICATION = "drfproject.wsgi.application"
 
 
 SITE_ID = 1
@@ -177,3 +175,19 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env("POSTGRES_DB"),
+        "USER": env("POSTGRES_USER"),
+        "PASSWORD": env("POSTGRES_PASSWORD"),
+        "HOST": env("POSTGRES_HOST", default="127.0.0.1"),
+        "PORT": env("POSTGRES_PORT", default="5432"),
+        "CONN_MAX_AGE": 60,  # 연결 재사용
+        "OPTIONS": {
+            # Render/Heroku 등에서 SSL 필요하면 .env에서 POSTGRES_SSLMODE=require 로
+            "sslmode": env("POSTGRES_SSLMODE", default="prefer"),
+        },
+    }
+}
